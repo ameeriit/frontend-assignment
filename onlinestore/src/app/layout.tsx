@@ -1,7 +1,11 @@
+"use client";
+
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import QueryProvider from "./api/QueryProvider";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +25,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={inter.className}>
-        <QueryProvider>{children}</QueryProvider>
+        <Provider store={store}>
+          <QueryProvider>{children}</QueryProvider>
+        </Provider>
       </body>
     </html>
   );
