@@ -1,18 +1,12 @@
 'use client';
 
 import './globals.css';
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import QueryProvider from './api/QueryProvider';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
 const inter = Inter({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Online Store',
-  description: 'E-commerce Site alike OnlineStore',
-};
 
 export default function RootLayout({
   children,
