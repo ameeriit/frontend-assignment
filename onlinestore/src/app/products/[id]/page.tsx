@@ -17,11 +17,13 @@ interface HomeProps {
 
 const ProductDetails = ({ params }: HomeProps) => {
   const dispatch = useDispatch();
+
   const { isLoading, error, data } = useQuery(['product', params.id], () =>
     axios
       .get(`https://fakestoreapi.com/products/${params.id}`)
       .then((res) => res.data)
   );
+
   if (isLoading) return <Loading />;
 
   if (error)
